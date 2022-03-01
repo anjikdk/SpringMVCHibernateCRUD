@@ -35,7 +35,9 @@
 			</c:forEach>
 		</table>
 		<h4>
-			New Employee Register <a href="newEmployee">here</a>
+			New Employee Register <a href="newEmployee">here</a><br></br>
+			Search Employee <a href="searchEmployee">here</a><br></br>
+			Display All Employee <a href="displayAllEmployees">here</a>
 		</h4>
 	</div>
 </body>

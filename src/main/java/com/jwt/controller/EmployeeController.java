@@ -71,5 +71,27 @@ public class EmployeeController {
 
 		return model;
 	}
-
+	
+	@RequestMapping(value = "/searchEmployee", method = RequestMethod.GET)
+	public ModelAndView searchEmployee(ModelAndView model) {
+		Employee employee = new Employee();
+		model.addObject("employee", employee);
+		model.setViewName("searchEmployee");
+		return model;
+	}
+	
+	@RequestMapping(value = "/getEmployeeByName")
+	public ModelAndView getEmployeeByName(@ModelAttribute Employee employee, ModelAndView model) throws IOException {
+		String name = employee.getName();
+		List<Employee> listEmployee = employeeService.getEmployeesByName(name);
+		model.addObject("listEmployee", listEmployee);
+		model.setViewName("home");
+		return model;
+	}
+	
+	@RequestMapping(value = "/displayAllEmployees", method = RequestMethod.GET)
+	public ModelAndView displayAllEmployees(ModelAndView model) {
+		
+		return new ModelAndView("redirect:/");
+	}
 }

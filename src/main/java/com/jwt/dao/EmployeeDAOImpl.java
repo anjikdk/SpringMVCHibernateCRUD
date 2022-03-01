@@ -46,5 +46,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		sessionFactory.getCurrentSession().update(employee);
 		return employee;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Employee> getEmployeesByName(String name) {
+
+		return sessionFactory.getCurrentSession().createQuery("from Employee where name like '%"+name+"%'")
+				.list();
+	}
 
 }
